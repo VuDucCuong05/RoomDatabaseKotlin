@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/bookFragment">
+
+    <fragment
+        android:id="@+id/bookFragment"
+        android:name="com.example.roomdatabase.fragment.BookFragment"
+        android:label="fragment_book"
+        tools:layout="@layout/fragment_book" >
+        <action
+            android:id="@+id/action_bookFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_bookFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.roomdatabase.fragment.AddFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <argument
+            android:name="add_book"
+            app:argType="com.example.bai1.model.Book" />
+        <action
+            android:id="@+id/action_addFragment_to_bookFragment"
+            app:destination="@id/bookFragment"
+            app:popUpTo="@id/bookFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.roomdatabase.fragment.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <argument
+            android:name="book_update"
+            app:argType="com.example.bai1.model.Book" />
+        <action
+            android:id="@+id/action_updateFragment_to_bookFragment"
+            app:destination="@id/bookFragment"
+            app:popUpTo="@id/bookFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
